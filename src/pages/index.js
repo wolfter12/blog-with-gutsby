@@ -28,7 +28,7 @@ export default IndexPage
 
 export const query = graphql`
   query {
-    allMarkdownRemark {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           id
@@ -36,6 +36,9 @@ export const query = graphql`
             description
             title
             date
+          }
+          fields {
+            slug
           }
           html
           excerpt
